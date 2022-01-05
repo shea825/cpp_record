@@ -6,3 +6,4 @@ add_subdirectory(processorInfo)
 add_subdirectory(pythonLib)
 add_subdirectory(matrix)
 
+add_executable(mainProj main.cpp)
