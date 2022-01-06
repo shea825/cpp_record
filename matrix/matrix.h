@@ -6,7 +6,7 @@
 #define TEST_MATRIX_H
 class Matrix {
 public:
-    Matrix( int = defaultRowSize, int = defaultColumnSize );//default constructor
+    explicit Matrix( int = defaultRowSize, int = defaultColumnSize );//default constructor
     Matrix(int,int,int *);//constructor
     Matrix(const Matrix &);
     ~Matrix();//destructor

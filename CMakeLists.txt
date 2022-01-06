@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 add_subdirectory(processorInfo)
 add_subdirectory(pythonLib)
 add_subdirectory(matrix)
-
+add_subdirectory(boostLib)
+add_subdirectory(tcp)
 add_executable(mainProj main.cpp)
