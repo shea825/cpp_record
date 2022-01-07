@@ -1,12 +1,8 @@
 //
 // Created by shea on 1/6/22.
 //
-#include <iostream>
-#include <unistd.h>
-#include <cstring>
 #include <iomanip>
-#include <sys/socket.h>
-#include <arpa/inet.h>
+
 #include "client.h"
 Client::Client(const std::string& IP, const std::string& Port) {//constructor
     auto* p = (std::string*)&(Client::IP_);
@@ -32,9 +28,11 @@ int Client::connect() {
         std::cerr << "connect error." << std::endl;
         return -1;
     }
+    return 0;
 }
 int Client::close() {
     ::close(cfd_);
+    return 0;
 }
 void Client::info() {
     std::cout << "The client information as follows:" << std::endl;
@@ -42,25 +40,33 @@ void Client::info() {
     std::cout << std::setw(8) << "Ip:" << std::setw(12) << IP_ << std::endl;
     std::cout << std::setw(8) << "Port:" << std::setw(12) << Port_ << std::endl;
 }
-int main() {
-    int n;
-    char buf[1024];
-    while (true) {
-        //read data
-        memset(buf, 0x00, sizeof(buf));
-        n = read(STDIN_FILENO, buf, sizeof(buf));
-        //send data
-        write(cfd_, buf, n);
-        //read data
-        memset(buf, 0x00, sizeof(buf));
-        n = read(cfd_, buf, sizeof(buf));
-        if (n <= 0) {
-            std::cerr << "read error or server exit." << std::endl;
-            break;
-        }
-        std::cout << "n:" << n << "buf:" << buf << std::endl;
-    }
+int Client::send(const std::vector<u_char> data) {
 
+    worker = std::thread([this, &data]() {
+        size_t len;
+        size_t n;
+        char buf[1024];
+        auto iter = data.begin();
+        while (true) {
+            //split data
+//            n = read(STDIN_FILENO, buf, sizeof(buf));
+            memset(buf, 0x00, sizeof(buf));
+            len = (data.end()-iter+1 > 1024) ? 1024 : data.end()-iter+1;
+            std::copy(iter, (len == 1024) ? iter+1023 : data.end(), buf);
+            //send data
+            n = write(cfd_, buf, len);
+            if (n <= 0) {
+                std::cerr << "send error or server exit." << std::endl;
+                return;
+            }
+        }
+    });
     return 0;
+}
+int main() {
+    Client clientInstance;
+    clientInstance.connect();
+    clientInstance.info();
+    return EXIT_SUCCESS;
 }
 
