@@ -3,7 +3,7 @@ project(pythonLib)
 
 find_package(PythonInterp REQUIRED)
 
-find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
+find_package(PythonLibs REQUIRED)
 
 add_executable(pythonLib pythonLib.cpp)
 
