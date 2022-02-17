@@ -1,0 +1,465 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "processorInfo",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "processorInfo",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "pythonLib",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "pythonLib",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "matrix",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "matrix",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "grid",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "grid",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "random",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 5,
+					"source" : "random",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "hash",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 6,
+					"source" : "hash",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "file",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 7,
+					"source" : "file",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "boostLib",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 8,
+					"source" : "boostLib",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "tcp",
+					"childIndexes" : 
+					[
+						10,
+						11,
+						12
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tcp"
+				},
+				{
+					"build" : "tcp/server",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 9,
+					"projectIndex" : 9,
+					"source" : "tcp/server",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "tcp/client",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 9,
+					"projectIndex" : 10,
+					"source" : "tcp/client",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "tcp/test",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 9,
+					"projectIndex" : 11,
+					"source" : "tcp/test",
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						9
+					],
+					"name" : "mainProj",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "processorInfo",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "pythonLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "matrix",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "grid",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "random",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "hash",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						7
+					],
+					"name" : "file",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "boostLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						10
+					],
+					"name" : "tcpServer",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						11
+					],
+					"name" : "tcpClient",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						12
+					],
+					"name" : "tcpUTest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 8,
+					"id" : "boostLib::@8f0739c75bc14dd7648c",
+					"jsonFile" : "target-boostLib-Debug-8a299acdbc8a7f7fe421.json",
+					"name" : "boostLib",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "file::@31351f546dc73cfc2229",
+					"jsonFile" : "target-file-Debug-698caa1b6688ef007817.json",
+					"name" : "file",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "grid::@3a9ce9d050f8ba365ee0",
+					"jsonFile" : "target-grid-Debug-3a08123a7818ca74b4f5.json",
+					"name" : "grid",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "hashcode::@d7333e98f53ddf1de70d",
+					"jsonFile" : "target-hashcode-Debug-bb4f3d5535b3dcfcef0a.json",
+					"name" : "hashcode",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mainProj::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mainProj-Debug-73d3646f3f13b93e3ddb.json",
+					"name" : "mainProj",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "matrix::@23c283fdd1b78e1a8728",
+					"jsonFile" : "target-matrix-Debug-28e80ac8ee0866730af3.json",
+					"name" : "matrix",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "processorInfo::@c3afeb14139f4690ac73",
+					"jsonFile" : "target-processorInfo-Debug-e80cb83ee281cbbd3600.json",
+					"name" : "processorInfo",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "pythonLib::@727c24366a7c44ab998b",
+					"jsonFile" : "target-pythonLib-Debug-95dd17c002edcc7d65e1.json",
+					"name" : "pythonLib",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "random::@043bef6630b23836363a",
+					"jsonFile" : "target-random-Debug-fc2a8c907042a4431018.json",
+					"name" : "random",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "tcpClient::@3df907a7d20ab4537dc9",
+					"jsonFile" : "target-tcpClient-Debug-10e8465c3800cefebfb5.json",
+					"name" : "tcpClient",
+					"projectIndex" : 10
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "tcpServer::@39dcd6794a0306f21f53",
+					"jsonFile" : "target-tcpServer-Debug-5662d98b2277775f8f56.json",
+					"name" : "tcpServer",
+					"projectIndex" : 9
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "tcpUTest::@1d02b77a2f074a54ad53",
+					"jsonFile" : "target-tcpUTest-Debug-6753934d18d66ec7d384.json",
+					"name" : "tcpUTest",
+					"projectIndex" : 11
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/shea/CLionProjects/cpp_record/cmake-build-debug",
+		"source" : "/home/shea/CLionProjects/cpp_record"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

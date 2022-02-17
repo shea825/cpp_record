@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shea/CLionProjects/cpp_record/random/random.cpp
+queue
+-
+sstream
+-
+iomanip
+-
+cmath
+-
+random.h
+/home/shea/CLionProjects/cpp_record/random/random.h
+
+/home/shea/CLionProjects/cpp_record/random/random.h
+string
+-
+

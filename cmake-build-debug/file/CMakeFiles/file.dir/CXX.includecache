@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shea/CLionProjects/cpp_record/file/file.cpp
+file.h
+/home/shea/CLionProjects/cpp_record/file/file.h
+algorithm
+-
+cctype
+-
+cstdio
+-
+fstream
+-
+iostream
+-
+cstring
+-
+vector
+-
+sys/stat.h
+-
+pwd.h
+-
+unistd.h
+-
+dirent.h
+-
+sstream
+-
+
+/home/shea/CLionProjects/cpp_record/file/file.h
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+

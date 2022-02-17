@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shea/CLionProjects/cpp_record/grid/grid.cpp
+grid.h
+/home/shea/CLionProjects/cpp_record/grid/grid.h
+
+/home/shea/CLionProjects/cpp_record/grid/grid.h
+iostream
+-
+string
+-
+sstream
+-
+vector
+-
+../hash/hashCode.h
+/home/shea/CLionProjects/cpp_record/hash/hashCode.h
+../random/random.h
+/home/shea/CLionProjects/cpp_record/random/random.h
+
+/home/shea/CLionProjects/cpp_record/hash/hashCode.h
+string
+-
+
+/home/shea/CLionProjects/cpp_record/random/random.h
+string
+-
+
