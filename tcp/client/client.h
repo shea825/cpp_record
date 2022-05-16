@@ -15,16 +15,17 @@
 
 class Client {
 public:
-    explicit Client(const std::string& IP = "127.0.0.1", const std::string& Port = "8888");
+    explicit Client(const std::string& ip = "127.0.0.1", const std::string& port = "8888");
     int connect();
-    int close();
-    void info();
+    int close() const;
+    void info() const;
     int send(std::vector<u_char> data);
     int rev(std::vector<u_char> &data);
+    ~Client();
 private:
-    const static char *const IP_;
-    const static unsigned short Port_;
-    static int cfd_;
+    std::string IP_;
+    std::string Port_;
+    int cfd_{};
     std::thread worker;
 };
 #endif //MAINPROJ_CLIENT_H

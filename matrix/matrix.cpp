@@ -122,8 +122,3 @@ std::istream &operator>>(std::istream &in, Matrix &rhs) {
     }
     return in;
 }
-
-int main() {
-
-    return EXIT_SUCCESS;
-}
