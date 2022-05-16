@@ -1,4 +1,0 @@
-/snap/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/shea/CLionProjects/cpp_record
--- Configuring done
--- Generating done
--- Build files have been written to: /home/shea/CLionProjects/cpp_record/cmake-build-debug
