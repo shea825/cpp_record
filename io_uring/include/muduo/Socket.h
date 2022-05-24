@@ -13,9 +13,22 @@ struct tcp_info;//in <netinet/tcp.h>
 
 class InetAddress;
 
-class Socket {
+struct non_copyable {
+    non_copyable() = default;
+
+    non_copyable(non_copyable&&) = default;
+    non_copyable& operator=(non_copyable&&) = default;
+
+    // you shall not copy
+    non_copyable(const non_copyable&) = delete;
+    non_copyable& operator=(const non_copyable&) = delete;
+};
+
+class Socket : non_copyable {
+private:
+    const int sockfd_;
 public:
-    explicit Socket(int sockfd) : sockfd_(sockfd) {};
+    explicit Socket(const int sockfd) : sockfd_(sockfd) {};
     ~Socket();
 
     int fd() const { return sockfd_; }
@@ -59,10 +72,14 @@ public:
     ///
     void setKeepAlive(bool on);
 
-    //noncopyable
-    Socket(Socket&) = delete;
-    Socket& operator=(Socket&) = delete;
+    /// operation<
+//    bool operator<(const Socket& socket) const;
+//    friend bool operator<(const Socket& socket1, const Socket& socket2);
+};
 
+class test : non_copyable {
 private:
-    const int sockfd_;
+    const int a;
+public:
+    explicit test(const int arg_a) : a(arg_a) {};
 };

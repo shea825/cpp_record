@@ -7,8 +7,9 @@ add_executable(file_util_test test/test_FileUtil.cpp
 target_link_libraries(file_util_test -luring)
 
 add_executable(socket_test test/test_Socket.cpp
-        src/Socket.cpp src/Socket.h
-        src/NetUtil.cpp src/NetUtil.h)
+        include/muduo/Socket.cpp include/muduo/Socket.h
+        include/muduo/SocketOps.cpp include/muduo/SocketOps.h
+        src/UringNet.cpp src/UringNet.h)
 target_link_libraries(socket_test -luring)
 
 add_executable(copyfile test/copyFile.cpp)

@@ -11,7 +11,7 @@
 #include <strings.h>  // bzero
 #include <cstdio>
 #include "Socket.h"
-#include "NetUtil.h"
+#include "SocketOps.h"
 
 Socket::~Socket() {
     ::close(sockfd_);
@@ -50,7 +50,72 @@ bool Socket::getTcpInfoString(char *buf, int len) const {
 void Socket::bindAddress(const InetAddress &localaddr) {
     int ret = ::bind(sockfd_, localaddr.getSockAddr(), static_cast<socklen_t>(sizeof(struct sockaddr_in6)));
     if (ret < 0) {
-        perror("bind error/n");
+        perror("bind error\n");
     }
 }
 
+void Socket::listen() {
+    int ret = ::listen(sockfd_, SOMAXCONN);
+    if (ret < 0) {
+        perror("listen error\n");
+    }
+}
+
+int Socket::accept(InetAddress *peeraddr) {
+
+    struct sockaddr_in6 addr;
+    bzero(&addr, sizeof addr);
+    int connfd = acceptOps(sockfd_, &addr);
+    if (connfd >= 0) {
+        peeraddr->setSockAddrInet6(addr);
+    }
+    return connfd;
+}
+
+void Socket::shutdownWrite() {
+    if (::shutdown(sockfd_, SHUT_WR) < 0) {
+        perror("sockets::shutdownWrite");
+    }
+}
+
+void Socket::setTcpNoDelay(bool on) {
+    int optval = on ? 1 : 0;
+    ::setsockopt(sockfd_, IPPROTO_TCP, TCP_NODELAY,
+                 &optval, static_cast<socklen_t>(sizeof optval));
+}
+
+void Socket::setReuseAddr(bool on) {
+    int optval = on ? 1 : 0;
+    ::setsockopt(sockfd_, SOL_SOCKET, SO_REUSEADDR,
+                 &optval, static_cast<socklen_t>(sizeof optval));
+}
+
+void Socket::setReusePort(bool on) {
+#ifdef SO_REUSEPORT
+    int optval = on ? 1 : 0;
+    int ret = ::setsockopt(sockfd_, SOL_SOCKET, SO_REUSEPORT,
+                           &optval, static_cast<socklen_t>(sizeof optval));
+    if (ret < 0 && on)
+    {
+        perror("SO_REUSEPORT failed.");
+    }
+#else
+    if (on) {
+    perror("SO_REUSEPORT is not supported.");
+  }
+#endif
+}
+
+void Socket::setKeepAlive(bool on) {
+    int optval = on ? 1 : 0;
+    ::setsockopt(sockfd_, SOL_SOCKET, SO_KEEPALIVE,
+                 &optval, static_cast<socklen_t>(sizeof optval));
+}
+
+bool Socket::operator<(const Socket &socket) const {
+    return sockfd_< socket.fd();
+}
+
+bool operator<(const Socket &socket1, const Socket &socket2) {
+    return socket1.fd() < socket2.fd();
+}

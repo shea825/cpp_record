@@ -61,3 +61,5 @@ private:
         struct sockaddr_in6 addr6_;
     };
 };
+
+int acceptOps(int sockfd, struct sockaddr_in6* addr);
