@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/processorInfo.dir/processorInfo.cpp.o -o processorInfo 
