@@ -111,11 +111,3 @@ void Socket::setKeepAlive(bool on) {
     ::setsockopt(sockfd_, SOL_SOCKET, SO_KEEPALIVE,
                  &optval, static_cast<socklen_t>(sizeof optval));
 }
-
-bool Socket::operator<(const Socket &socket) const {
-    return sockfd_< socket.fd();
-}
-
-bool operator<(const Socket &socket1, const Socket &socket2) {
-    return socket1.fd() < socket2.fd();
-}

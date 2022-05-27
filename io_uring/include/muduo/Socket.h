@@ -72,14 +72,4 @@ public:
     ///
     void setKeepAlive(bool on);
 
-    /// operation<
-//    bool operator<(const Socket& socket) const;
-//    friend bool operator<(const Socket& socket1, const Socket& socket2);
-};
-
-class test : non_copyable {
-private:
-    const int a;
-public:
-    explicit test(const int arg_a) : a(arg_a) {};
 };
