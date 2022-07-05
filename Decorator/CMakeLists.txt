@@ -1,1 +1,1 @@
-add_executable()
+add_executable(Stream Stream.cpp)
