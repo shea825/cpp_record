@@ -60,9 +60,23 @@ void udp_unicast_recv(const std::string &self_ip, uint32_t udp_recv_port,
     }
 }
 
+short func(const char* arr){
+    short value;
+    std::memcpy(&value, arr, sizeof (short ));
+    return value;
+}
+
+short func1(const char* arr){
+    short value;
+    std::memcpy(&value, arr, sizeof (uint8_t ));
+    return value;
+}
+
+
 int main() {
-    udp_unicast_recv("127.0.0.1", 6679,  [](const char *data, int size) {
-        std::cout << std::string(data, size) << std::endl;
+    udp_unicast_recv("192.168.30.164", 6678,  [](const char *data, int size) {
+        std::cout << std::string(data, size) << "size:" << size << std::endl;
+//        std::cout << int16_t (data[0])  << "  " << int16_t (data[2]) << size << std::endl;
     });
     return 0;
 }

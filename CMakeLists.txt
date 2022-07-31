@@ -34,6 +34,9 @@ message(STATUS "Enable testing: ${ENABLE_UNIT_TESTS}")
 add_subdirectory(Strategy)
 add_subdirectory(Decorator)
 
+add_subdirectory(unicast)
+add_subdirectory(Features)
+
 if (ENABLE_UNIT_TESTS)
     enable_testing()
 
