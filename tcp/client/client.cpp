@@ -37,7 +37,7 @@ void Client::info() const{
     std::cout << std::setw(8) << "Ip:" << std::setw(12) << IP_ << std::endl;
     std::cout << std::setw(8) << "Port:" << std::setw(12) << Port_ << std::endl;
 }
-int Client::send(std::vector<u_char> data) {
+int Client::loopSend(std::vector<u_char> data) {
 
     worker = std::thread([this, &data]() {
         size_t len; //to write length
@@ -75,13 +75,25 @@ Client::~Client() {
     }
 }
 
+int Client::send(std::string data) {
+    char* buf = data.data();
+    size_t bufSize = data.size();
+    size_t n = write(cfd_, buf, bufSize);
+    if (n <= 0) {
+        std::cerr << "send error or server exit." << std::endl;
+        return -1;
+    }
+    std::cout << "send success. buf: " << data << std::endl
+              << "size: " << bufSize << std::endl;
+}
+
 int main() {
-    Client client;
+    Client client("127.0.0.1", "8000");
     client.info();
     client.connect();
-    std::string sendStr = "123412345678910";
-    std::vector<u_char> dataVec(sendStr.begin(),sendStr.end());
-    client.send(dataVec);
+    client.send("123412345678910");
+    client.send("abcdefg");
+    client.send("[]-=]==========");
     return EXIT_SUCCESS;
 }
 

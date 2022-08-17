@@ -23,7 +23,7 @@ UringNet::~UringNet() {
 int UringNet::init() {
     int ret;
     ret = io_uring_queue_init(QD_, &ring_, 0);
-    if( ret < 0) {
+    if(ret < 0) {
         fprintf(stderr, "queue_init: %s\n", strerror(-ret));
         return -1;
     }
@@ -68,6 +68,7 @@ int UringNet::add_accept_request(int fd) {
 void UringNet::server(int fd, const callbackFunc& handle_client_request) {
     struct io_uring_cqe *cqe;
     add_accept_request(fd);
+    std::string tmp;
     while (true) {
         int ret = io_uring_wait_cqe(&ring_, &cqe);
         auto *req = (struct request *) cqe->user_data;
@@ -82,16 +83,19 @@ void UringNet::server(int fd, const callbackFunc& handle_client_request) {
             case req_accept:
                 add_accept_request(fd);
                 add_read_request(cqe->res);
-                free(req);
+//                free(req);
                 break;
             case req_read:
                 if (!cqe->res) {
                     fprintf(stderr, "Empty request!\n");
                     break;
                 }
-                handle_client_request(req->get_msg());
-                free(req->iov[0].iov_base);
-                free(req);
+                tmp = req->get_msg();
+                handle_client_request(tmp);
+                add_accept_request(fd);
+                add_read_request(fd);
+//                free(req->iov[0].iov_base);
+//                free(req);
                 break;
             case req_write:
                 for (int i = 0; i < req->iovec_count; i++) {

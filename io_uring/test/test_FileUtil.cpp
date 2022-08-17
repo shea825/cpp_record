@@ -9,7 +9,7 @@
 
 
 int main() {
-    const char * test = "/home/shea/CLionProjects/cpp_record/io_uring/test/testSample.txt";
+    const char * test = "../../io_uring/test/testSample.txt";
     ReadSmallFile readSmallFile(test);
     std::string content;
     int64_t file_size, mtime, atime;

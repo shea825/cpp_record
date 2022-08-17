@@ -13,8 +13,7 @@ int main() {
     UringNet uringNet = UringNet();
     uringNet.init();
     auto server_fd = uringNet.setup_listen(8000);
-    uringNet.add_accept_request(server_fd);
-    uringNet.server(server_fd, [](std::string msg) {
+    uringNet.server(server_fd, [](const std::string& msg) {
         std::cout << msg << std::endl;
     });
 }

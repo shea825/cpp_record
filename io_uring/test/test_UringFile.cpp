@@ -38,12 +38,12 @@ int main() {
 //    }
 //    std::cout << insize << std::endl;
 //    auto ret = uringFile.copy_file(insize);
-    const char * test = "/home/shea/CLionProjects/cpp_record/io_uring/test/testSample.txt";
-    uringFile.init({});
-    uringFile.read_small_file(test);
-    auto fd = uringFile.get_fd(test);
-    char buf[50];
-    memset(buf,0,50);
-    uringFile.to_buffer(fd, buf, 50);
-    printf("%s\n", buf);
+//    const char * test = "/home/shea/CLionProjects/cpp_record/io_uring/test/testSample.txt";
+//    uringFile.init({});
+//    uringFile.read_small_file(test);
+//    auto fd = uringFile.get_fd(test);
+//    char buf[50];
+//    memset(buf,0,50);
+//    uringFile.to_buffer(fd, buf, 50);
+//    printf("%s\n", buf);
 }

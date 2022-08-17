@@ -31,8 +31,7 @@ add_subdirectory(io_uring)
 option(ENABLE_UNIT_TESTS "Enable unit tests" ON)
 message(STATUS "Enable testing: ${ENABLE_UNIT_TESTS}")
 
-add_subdirectory(Strategy)
-add_subdirectory(Decorator)
+add_subdirectory(designPatterns)
 
 add_subdirectory(unicast)
 add_subdirectory(Features)

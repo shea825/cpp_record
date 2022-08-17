@@ -19,7 +19,8 @@ public:
     int connect();
     int close() const;
     void info() const;
-    int send(std::vector<u_char> data);
+    int loopSend(std::vector<u_char> data);
+    int send(std::string data);
     int rev(std::vector<u_char> &data);
     ~Client();
 private:
