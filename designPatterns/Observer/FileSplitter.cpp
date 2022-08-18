@@ -1,4 +1,6 @@
 
+#include <string>
+
 /** @file FileSplitter.cpp
  *  @author shea
  *  @date 8:10 PM 6/26/22
@@ -10,7 +12,7 @@ class IProgress {
 public:
     virtual void DoProgress(float value) = 0;
 
-    virtual ~IProgress();
+    virtual ~IProgress() = default;
 };
 
 class FileSplitter {
@@ -35,7 +37,7 @@ public:
         for (int i = 0; i < fileNumber_; ++i) {
             if (iProgress_) {
                 float progressValue = fileNumber_;
-                progressValue = (i+1)/fileNumber_;
+                progressValue = (i + 1) / fileNumber_;
                 iProgress_->DoProgress(progressValue);  //更新进度条
             }
         }
