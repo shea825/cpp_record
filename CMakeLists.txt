@@ -23,18 +23,16 @@ if (Boost_FOUND)
     message(STATUS "Boost Lib Found")
 endif ()
 
-add_subdirectory(tcp)
-add_subdirectory(udp)
 
-add_subdirectory(io_uring)
+add_subdirectory(IO)
 
 option(ENABLE_UNIT_TESTS "Enable unit tests" ON)
 message(STATUS "Enable testing: ${ENABLE_UNIT_TESTS}")
 
 add_subdirectory(designPatterns)
 
-add_subdirectory(unicast)
 add_subdirectory(Features)
+add_subdirectory(Algorithm)
 
 if (ENABLE_UNIT_TESTS)
     enable_testing()

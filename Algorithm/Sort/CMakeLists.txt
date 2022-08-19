@@ -1,0 +1,1 @@
+add_executable(Sort Sort.c)
