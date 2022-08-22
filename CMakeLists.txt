@@ -33,6 +33,7 @@ add_subdirectory(designPatterns)
 
 add_subdirectory(Features)
 add_subdirectory(Algorithm)
+add_subdirectory(NetworkProgramming)
 
 if (ENABLE_UNIT_TESTS)
     enable_testing()

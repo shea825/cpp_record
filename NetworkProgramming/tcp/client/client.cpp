@@ -2,6 +2,7 @@
 // Created by shea on 1/6/22.
 //
 #include <iomanip>
+#include <netinet/tcp.h>
 
 #include "client.h"
 Client::Client(const std::string& ip, const std::string& port) {//constructor
@@ -70,6 +71,12 @@ int Client::rev(std::vector<u_char> &data) {
 }
 
 Client::~Client() {
+    struct tcp_info info{};
+    int len=sizeof(info);
+    getsockopt(cfd_, IPPROTO_TCP, TCP_INFO, &info, (socklen_t *)&len);
+    if(info.tcpi_state == TCP_ESTABLISHED) {
+        close();
+    }
     if (worker.joinable()) {
         worker.join();
     }
@@ -88,7 +95,7 @@ int Client::send(std::string data) {
 }
 
 int main() {
-    Client client("127.0.0.1", "8000");
+    Client client("127.0.0.1", "5188");
     client.info();
     client.connect();
     client.send("123412345678910");
