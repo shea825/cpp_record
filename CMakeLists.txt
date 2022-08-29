@@ -17,7 +17,7 @@ endif ()
 
 add_subdirectory(matrix)
 
-find_package(Boost 1.71 COMPONENTS filesystem)
+find_package(Boost)
 if (Boost_FOUND)
     add_subdirectory(boostLib)
     message(STATUS "Boost Lib Found")

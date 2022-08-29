@@ -6,6 +6,8 @@
 #include <iostream>
 #include <unistd.h>
 #include "Thread.h"
+#include "../Object-based/Thread.h"
+
 
 Thread::Thread() {
     std::cout << "thread construct ..." << std::endl;
