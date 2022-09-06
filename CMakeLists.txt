@@ -35,6 +35,8 @@ add_subdirectory(Features)
 add_subdirectory(Algorithm)
 add_subdirectory(NetworkProgramming)
 add_subdirectory(Thinkings)
+add_subdirectory(STL)
+add_subdirectory(utils)
 
 if (ENABLE_UNIT_TESTS)
     enable_testing()
