@@ -1,0 +1,2 @@
+add_executable(UseFuture UseFuture.cpp)
+target_link_libraries(UseFuture pthread)

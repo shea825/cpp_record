@@ -6,6 +6,7 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <functional>
+typedef void (*funcType)(const char *msg);
 
 class Foo {
 public:
@@ -19,6 +20,13 @@ public:
   }
 };
 
+void outputFunc1(const char *msg, int len, int* file) {
+  printf("%s", msg);
+}
+
+typedef void (*funcType1)();
+double callableFunc (double x, double y) {return x/y;}
+
 int main() {
   Foo foo;
   //boost bind
@@ -28,5 +36,11 @@ int main() {
   //std bind
   auto f3 = std::bind(&Foo::memberFunc, &foo, 0.5, std::placeholders::_1, 10);
   f3(100);
+
+//  FILE* g_file;
+//  int* i;
+//  funcType f4 = std::bind(outputFunc1, std::placeholders::_1, 10, i);
+//  f4("111", 2);
   return EXIT_SUCCESS;
+
 }

@@ -5,6 +5,7 @@
 #include <memory>
 #include <vector>
 
+typedef void (*FUNC)(const std::vector<int>& data);
 int main() {
   std::vector<int> data{ 1, 2, 3, 4 };
 
@@ -13,6 +14,7 @@ int main() {
       { /* uses of data */ },
       std::move(data));
   func();
+//  FUNC f1 = func; //todo 还没搞懂
   std::function<void ()> f = func;
 
   std::unique_ptr<int> x(new int(42));
