@@ -1,5 +1,5 @@
 project(processorInfo CXX)
-add_executable(processorInfo processorInfo.cpp)
+add_executable(processorInfo "")
 target_sources(processorInfo
         PRIVATE processorInfo.cpp
         )
