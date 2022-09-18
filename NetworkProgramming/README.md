@@ -76,3 +76,25 @@ accept() --> dispatch -->
 * I/O线程
 * 计算线程
 * 第三方库所用线程，比如logging和数据库
+
+## Tcp的三个半事件
+* 连接建立
+  * 服务器accept被动接受连接
+  * 客户端connect主动发起连接
+  
+* 连接断开
+  * 主动断开close shutdown
+  * 被动断开read返回0
+  
+* 消息到达
+  * 文件描述符可读
+  
+* 消息发送完毕
+  * 对于低流量的服务，可不必关心这个事件;这里的发送完毕是指数据写入操作系统缓冲区，
+    将由TCP协议栈负责数据的发送与重传，不代表对方已经接收到数据
+    
+## EventLoop
+* one loop per thread意思是说每个线程最多只能有一个EventLoop对象
+* EventLoop对象构造的时候，会检查当前线程是否已经创建了其他EventLoop对象，如果已创建，终止程序
+* EventLoop构造函数会记住本对象所属线程 `threadId_`
+* 创建了EventLoop对象的线程称为I/O线程，其功能是运行事件循环 `EventLoop::loop`

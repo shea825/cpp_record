@@ -39,6 +39,7 @@ add_subdirectory(STL)
 add_subdirectory(utils)
 add_subdirectory(Concurrency)
 add_subdirectory(Template)
+add_subdirectory(Memory)
 
 if (ENABLE_UNIT_TESTS)
     enable_testing()
