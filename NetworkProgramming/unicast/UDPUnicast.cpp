@@ -19,9 +19,9 @@ void udp_unicast_recv(const std::string &self_ip, uint32_t udp_recv_port,
     struct ip_mreq mreq{};
 
 /* 创建 socket 用于UDP通讯 */
-    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
-        perror("socket creating err in multicast_recv\n");
+        perror("socket creating err in tcp_recv\n");
         return;
     }
 

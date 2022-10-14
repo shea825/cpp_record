@@ -20,7 +20,7 @@ int Server::init() {
     struct sockaddr_in serv_addr{};
     memset(&serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(8888);
+    serv_addr.sin_port = htons(9910);
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     int ret = bind(lfd_, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
     if (ret < 0) {

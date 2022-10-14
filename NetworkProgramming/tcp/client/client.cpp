@@ -40,7 +40,7 @@ void Client::info() const{
 }
 int Client::loopSend(std::vector<u_char> data) {
 
-    worker = std::thread([this, &data]() {
+    worker = std::thread([this, &data]()  {
         size_t len; //to write length
         size_t n;   //writen length
         char buf[1024];

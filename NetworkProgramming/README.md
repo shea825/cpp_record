@@ -98,3 +98,13 @@ accept() --> dispatch -->
 * EventLoop对象构造的时候，会检查当前线程是否已经创建了其他EventLoop对象，如果已创建，终止程序
 * EventLoop构造函数会记住本对象所属线程 `threadId_`
 * 创建了EventLoop对象的线程称为I/O线程，其功能是运行事件循环 `EventLoop::loop`
+
+## Timer计时器函数选择
+* sleep/alarm/usleep 在实现时可能用到了信号 SIGALRM，在多线程程序中处理信号是个相当麻烦的事情，应当尽量避免
+* nanosleep和clock_nanosleep是线程安全的，但是在非阻塞网络编程中，绝对不能用让线程挂起的方式来等待一段时间，程序会失去响应。
+  正确的做法是注册一个时间回调函数
+  
+* getitimer和timer_create也是用信号来deliver超时
+* timer_create可以指定信号的接收方是进程还是线程，算是一个进步，不过在信号处理函数能做的事情实在很受限
+* timerfd_create把时间变成了一个文件描述符，该“文件”在定时器超时的那一刻变得可读，这样就能很方便地融入到select/poll框架中，
+  用统一的方式来处理IO事件和超时事件，这也正是Reactor模式的长处

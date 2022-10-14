@@ -10,7 +10,7 @@ class ClassA
 public:
   ClassA() { std::cout << "ClassA Constructor..." << std::endl; }
   ~ClassA() { std::cout << "ClassA Destructor..." << std::endl; }
-  std::weak_ptr<ClassB> pb;  // 在A中引用
+  std::weak_ptr<ClassB> pb;  // 在A中引用B
 };
 
 class ClassB
